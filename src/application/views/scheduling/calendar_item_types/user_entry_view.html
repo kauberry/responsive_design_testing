@@ -1,0 +1,32 @@
+<?php 
+  $ended = $res['end_timestamp'] < $current_time ? " reservation_ended" : "";
+  $last_minute = $res['is_last_minute'] ? " last_minute" : "";
+?>
+<div 
+  class="calendar_entry col_<?= $slot['column'] ?> <?= $slot['top_class'] ?> <?= $slot['bottom_class'] ?><?= $ended ?><?= $last_minute ?><?= $in_progress ?>" 
+  style="border-width:2px; color:<?= $res['text_color'] ?>;border-color:<?= $res['border_color'] ?>;background-color:<?= $res['base_color'] ?>"
+>
+  <?php if($res['is_last_minute']): ?>
+  <div class="reservation_info" title="Last Minute Reservation">
+  <?php else: ?>
+  <div class="reservation_info">
+  <?php endif; ?>
+    <div><span class="res_user_name"><?= $res['eus_user_name'] ?></span></div>
+    <?php if($res['proxy_reservation']): ?>
+    <div><span class="proxy_user_name">for <?= $res['proxy_user_name'] ?></span></div>
+    <?php endif; ?>
+    <div class="timespan">
+      <a class="reservation_link" href="<?= base_url() ?><?= $res['view_url'] ?>"><span class="start_time"><?= $res['start_time'] ?></span> &ndash; <span class="end_time"><?= $res['end_time'] ?></span></a>
+      <?php if($res['is_last_minute']): ?>
+      <span class="last_minute_notification" title="Last Minute Reservation">[*]</span>
+      <?php endif; ?>
+    </div>
+    <?php if(!empty($res['eus_proposal_id'])): ?>
+    <div title="<?= $res['eus_proposal_name'] ?>" class="user_proposal_info">
+      Proposal# <span class="user_proposal_number"><?= $res['eus_proposal_id'] ?></span>
+      <br />
+      <span class="user_proposal_title" style="line-height:1.2;"><?= truncate($res['eus_proposal_name'],60) ?></span>
+    </div>
+    <?php endif; ?>
+  </div>
+</div>

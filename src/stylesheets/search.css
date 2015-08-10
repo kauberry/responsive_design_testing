@@ -1,0 +1,93 @@
+.sr_ticket_title {
+  font-size:1.3em;
+  font-weight:bold;
+  margin-top:20px;
+}
+
+.sr_ticket_info{
+  color:#216A38;
+  font-size:0.95em;
+  font-weight:bold;
+}
+
+.highlight_snippets em{
+  font-weight:bold;
+  background-color:#ffff88;
+  font-style:normal;
+}
+
+#right_col_facets {
+  width: 170px;
+  float: left;
+  margin: 20px 0 0 -170px;
+  font-size: 0.95em;
+  line-height: 125%;
+}
+
+#right_col_facets li {
+  text-transform:capitalize;
+}
+
+#right_col_facets h3{
+  font-weight:bold;
+  color:#fff;
+  padding:4px 4px;
+  background-color:#666;
+  margin-bottom:5px;
+}
+
+#sr_results_count_holder {
+  color:#666;
+}
+
+#right_col_facets .facet_set {
+  margin-bottom:10px;
+  border: 1px solid #A2A3A6;
+  border-radius: 4px;
+}
+
+#right_col_facets .facet_set ul{
+  padding-left:2px;
+  padding-right:5px;
+}
+
+#right_col_facets .facet_count{
+  float:right;
+  color:#666;
+}
+
+#right_col_facets input[type="checkbox"]{
+  margin-right:5px;
+  font-size:0.4em;
+  margin-bottom:5px;
+}
+
+#right_col_facets label {
+  font-size:0.95em;
+  font-weight:600;
+  
+}
+
+.expander{
+  color: #C60;
+  font-family: monospace;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.see_more{
+  font-weight:bold;
+  color:#606060;
+}
+
+.see_more:hover{
+  text-decoration: underline;
+}
+
+.refinement_list {
+  margin-left:20px;
+}
+
+.hidden_items{
+  display:none;
+}

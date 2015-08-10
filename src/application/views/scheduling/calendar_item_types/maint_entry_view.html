@@ -1,0 +1,16 @@
+<?php $ended = $res['end_timestamp'] < $current_time ? " reservation_ended" : ""; ?>
+<div class="maintenance_reservation calendar_entry col_<?= $slot['column'] ?> <?= $slot['top_class'] ?> <?= $slot['bottom_class'] ?><?= $ended ?><?= $in_progress ?>" style="border-width:2px; color:<?= $res['text_color'] ?>;border-color:<?= $res['border_color'] ?>;background-color:<?= $res['base_color'] ?>">
+  <div class="reservation_info" style="vertical-align:middle;border-color:<?= $res['border_color'] ?>">
+    <div><span class="res_user_name" style="font-size:0.95em;color:#222222;font-weight:bold;text-shadow:2px 2px 2px rgba(200,200,200, 0.5);"><?= $res['reservation_type_name'] ?></span></div>
+    <div><span style="color:#222222;text-shadow:2px 2px 2px rgba(200,200,200, 0.5);"><?= $res['eus_user_name'] ?></span></div>
+    <div class="timespan">
+      <a class="reservation_link" href="<?= base_url() ?><?= $res['view_url'] ?>"><span class="start_time"><?= $res['start_time'] ?></span> &ndash; <span class="end_time"><?= $res['end_time'] ?></span></a>
+    </div>
+    <?php if(!empty($res['comments'])): ?>
+    <div title="<?= $res['comments'] ?>" class="user_proposal_info">
+      <p style="font-size:1.1em;line-height:1.0;">Maintenance Description</p>
+      <p style="font-size:0.9em;line-height:1.25;"><?= $res['comments'] ?></p>
+    </div>
+    <?php endif; ?>
+  </div>
+</div>

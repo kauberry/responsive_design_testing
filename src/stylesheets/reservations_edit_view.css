@@ -1,0 +1,179 @@
+.reservation_info_text {
+  color:#555;
+  font-size:1.2em;
+  font-weight:600;
+  padding: 0 0 0 10px;
+}
+
+fieldset {
+  margin-bottom: 20px;
+}
+
+.small_print{
+  font-style:italic;
+  font-size: 0.9em;
+  color:#666;
+}
+
+.datepicker td {
+  border-radius: 0 !important;
+}
+
+#reservation_description_block {
+  text-align: center;
+  margin-top:2em;
+}
+
+table.legend_block{
+  border-spacing:5px;
+  border-collapse: separate;
+}
+
+.legend_block td {
+  width:20px;
+  height:16px;
+  border: 2px solid #bdbdbd;
+  border-radius: 2px;
+  
+}
+
+
+td.legend {
+  background: rgb(99, 192, 105) !important;
+}
+
+
+td.free {
+  background: rgb(99, 192, 105) !important;
+}
+
+td.partially_clear {
+  background: rgb(219,219,0) !important;
+}
+
+td.full {
+  background: rgb(215, 126, 118) !important;
+}
+
+td.preferred {
+  border: 2px rgb(35, 145, 255) solid !important;
+}
+
+td.disallowed {
+  background: rgb(150,150,150) !important;
+}
+
+td.description_cell {
+  border:none;
+  background: none;
+  width:auto;
+  height:auto;
+}
+
+td.active {
+  font-weight:bold;
+  color: black !important;
+}
+
+.legend_block td.preferred {
+  background: repeating-linear-gradient(
+    45deg,
+    rgb(215,126,118),
+    rgb(215,126,118) 33%,
+    rgb(219,219,0) 35%,
+    rgb(219,219,0) 63%,
+    rgb(99, 192, 105) 32%,
+    rgb(99, 192, 105) 100%  ) !important;
+}
+
+#proposal_restrictions {
+  text-align:center;
+  margin-top:2em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color:#333;
+}
+
+#proposal_restrictions.warning {
+  color: rgb(223, 77, 71) !important;
+}
+
+#datepicker th {
+  text-align:center;
+}
+
+label span.disabled_label {
+  color: #999;
+}
+
+#time_slot_block > div, div#calendar_legend_block {
+  border: 3px solid #b2b3b5;
+  border-radius:5px;
+}
+
+#time_slot_block h2, #calendar_legend_block h2 {
+  text-align: center;
+  color: #333;
+  border-bottom: 3px solid #b2b3b5;
+  font-weight: bold;
+  padding:5px;
+  background: #d9d9d9;
+}
+
+#time_slot_block .reservation_slot_info {
+  margin-left:1.5em;
+}
+
+.reservation_slot_info .slot_availability_marker {
+  font-size:0.95em;
+  color: green;
+}
+
+.reservation_slot_info label{
+  color: #505050;
+}
+
+#advanced_time_picker input[type='text']{
+  border: 2px solid #bebebe;
+  border-radius: 4px;
+  width:100px;
+  text-align:center;
+}
+
+
+#reservation_response .error {
+  border:2px solid red;
+  border-radius: 8px;
+  padding:1em;
+}
+
+#reservation_response {
+  margin-top:50px;
+  position: relative;  
+}
+
+/*DL, DT, DD TAGS LIST DATA*/
+dl {
+    margin-bottom:20px;
+}
+ 
+dl dt {
+    background:#5f9be3;
+    color:#fff !important;
+    border-radius:4px;
+    background:rgba(201, 155, 39, 0.87);
+    float:left; 
+    font-weight:bold; 
+    margin-right:10px;
+    padding-right:10px; 
+    text-align:right;
+    padding:5px;  
+    width:200px; 
+    text-shadow: -1px -1px 1px rgba(20, 20, 20, 0.65);
+
+}
+ 
+dl dd {
+    margin:2px 0; 
+    padding:5px 0;
+}

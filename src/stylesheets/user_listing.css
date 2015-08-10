@@ -1,0 +1,8 @@
+div.user_container {
+	width:100%;
+  border: 2px solid #aaaaaa;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  margin-bottom:1.5em;
+  height:100px;
+}

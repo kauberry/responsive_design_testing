@@ -1,0 +1,179 @@
+h2.location_header {
+  padding:5px;
+  padding-top: 8px;
+  background-color:#eee;
+  margin-top:15px;
+  margin-bottom:-2px !important;
+  font-size:1.5em !important;
+  font-weight: 600 !important;
+}
+
+h2.open {
+  border: 2px solid #aaa;
+  border-bottom: 0;
+  border-radius: 10px 10px 0px 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;  
+}
+
+h2.closed {
+  border: 2px solid #aaa;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+}
+  
+div.location_entry {
+  border: 2px solid #aaa;
+  font-size:larger;
+  padding:5px;
+  border-radius: 0px 0px 10px 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+}
+
+a#wiki_link{
+	color:#d57500;
+	text-decoration:none;
+}
+
+a#wiki_link:hover{
+	text-decoration:underline;
+}
+
+/* a[href^="https?://"] {
+    background: url(images/external.png) center right no-repeat;
+    padding-right: 13px;
+}
+
+a[href^="https?://nmr.emsl.pnl.gov"]  {
+    background: none;
+    padding-right: 0;
+}
+*/
+
+a.external {
+	background: url('../images/external.png') center right no-repeat;
+  padding-right: 13px;
+}
+
+.edit_field {
+	min-height:3em;
+}
+
+.edit_field input[type="text"], .edit_field textarea {
+  border: 2px solid #aaa;
+  border-radius:3px;  
+}
+
+.edit_field select, .edit_field input, .edit_field textarea {
+	width:90%;
+}
+
+ul.type_entry {
+  border: 0;
+  list-style-type: none;
+  list-style-image: none !important;
+  margin-bottom: 0px !important;
+}
+
+ul.type_entry h3, li.type_header {
+  margin-bottom: 5px !important;
+  margin-top: 10px;
+}
+
+li.type_header h3 {
+  font-size:1.2em !important;
+}
+ul.equipment_entry {
+  font-size:14px;
+  border: 0;
+  margin-bottom:0px !important;
+  margin-left:1.5em !important;
+}
+
+ul.equipment_entry li {
+  margin-bottom:2px !important;
+  
+}
+
+ul.desc_list {
+  font-size:smaller !important;
+  margin-top: 0 !important;
+  margin-bottom: 2px !important;
+}
+
+span.description {
+  font-size:smaller;
+  padding-left: 1em;
+}
+
+h1.underline {
+  border-bottom: 2px solid #aaa;
+}
+
+ul.equipment_entry {
+  margin-top: 2px !important;
+}
+
+ul.equipment_desc{
+  list-style-image: none !important;
+  list-style:disc;
+  margin-bottom: 2px !important;
+}
+
+ul.equipment_desc li {
+  margin-bottom: 0px !important;
+}
+
+ul.associated_equipment {
+  list-style-image:  none !important;
+  font-size: 1.25em;
+}
+
+ul.associated_equipment li {
+  margin-left:0 !important;
+}
+
+ul.associated_equipment a {
+  font-weight:bold;
+  text-decoration:none;
+  color: #606060;
+}
+
+ul.associated_equipment a:hover {
+  text-decoration:underline;
+}
+
+span.equip_remove_button{
+  background: url(../images/remove_icon_sprite.png) 0 0 no-repeat;
+  background-position-y: 0px;
+  background-position-x: 0px;
+  padding-left:10px;
+  width:14px;
+  height:14px;
+}
+
+span.equip_remove_button:hover{
+  background-position-x: -14px;
+}
+
+.equipment_picklist select{
+  width:100%;
+}
+
+.equipment_picklist{
+  width:63%;
+}
+
+.equipment_picklist_button_holder{
+  width:30%;
+}
+
+

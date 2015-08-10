@@ -1,0 +1,24 @@
+.smaller {
+	font-size: 1.0em !important;
+  vertical-align:middle;
+}
+
+.left_block, .right_block {
+  
+}
+
+#power_result_block {
+  font-size: large;
+  font-weight: bold;
+  color: #555555;
+  text-align:center;
+}
+
+input[type="text"]{
+  border: 2px solid #aaa;
+  border-radius:3px;  
+}
+
+#power_result_value {
+  
+}

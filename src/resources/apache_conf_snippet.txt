@@ -1,0 +1,29 @@
+  <Directory "/home/prismweb/magres">
+    Options Indexes Includes FollowSymLinks MultiViews
+    DirectoryIndex index.php index.html
+    AuthType Kerberos
+    AuthName "SPNEGO"
+    KrbAuthRealms PNL.GOV
+    KrbMethodNegotiate on
+    KrbMethodK5Passwd on
+    KrbAuthoritative off
+    KrbLocalUserMapping on
+    KrbServiceName HTTP
+    KrbSaveCredentials on
+    KrbVerifyKDC off
+    Krb5Keytab /etc/httpd/conf/prismwebdev.pnl.gov.keytab
+    AuthLDAPUrl "ldap://pnldc4.pnl.gov pnldc2.pnl.gov/dc=pnl,dc=gov?sAMAccountName,displayName,mail,givenName,initials,sn"
+    AuthLDAPBindDN CN=SvcPrismLDAP,CN=Users,DC=pnl,DC=gov
+    AuthLDAPBindPassword Hot34did 
+    AuthLDAPRemoteUserAttribute mail
+    AuthzLDAPRemoteUserAttribute on
+    Require ldap-group CN=PNL_Employees,CN=Users,DC=pnl,DC=gov
+
+    RewriteEngine on
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond $1 !^(index\.php|robots\.txt)
+    RewriteRule ^(.*)$ index.php/$1 [L]
+    
+</Directory>

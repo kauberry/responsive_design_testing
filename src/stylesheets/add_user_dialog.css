@@ -1,0 +1,9 @@
+.dialogWithDropShadow{
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.dialog_content td{
+  font-family: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 11px;
+}

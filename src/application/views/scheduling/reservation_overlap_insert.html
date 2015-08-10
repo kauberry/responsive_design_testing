@@ -1,0 +1,29 @@
+<div id="overlap_info">
+  <?php $pluralizer = $overlap_count != 1 ? "s" : ""; ?>
+  <h2>This date range encompasses <?= $overlap_count ?> existing reservation<?= $pluralizer ?></h2>
+  <ul>
+  <?php foreach($overlap_info as $res): ?>
+    <?php 
+      $start_time = new DateTime($res['start_time']);
+      $end_time = new DateTime($res['end_time']);
+      if($start_time->format('Ymd') != $end_time->format('Ymd')){
+        //different days, so more details
+        $displayed_time_range = "{$start_time->format('m/d/Y')} at {$start_time->format('g:ia')} &ndash; {$end_time->format('m/d/Y')} at {$end_time->format('g:ia')}";
+      }else{
+        //same day, just show date info followed by simple time range
+        $displayed_time_range = "{$start_time->format('m/d/Y')} {$start_time->format('g:ia')}&ndash;{$end_time->format('g:ia')}";
+      }
+    ?>
+    
+    <li>
+      <a href="<?= $res['view_url'] ?>"><?= $displayed_time_range ?></a> for <?= $res['scheduled_user'] ?>
+      <?php if(array_key_exists('scheduled_by',$res)): ?>
+        &nbsp;[scheduled by <?= $res['scheduled_by'] ?>]
+      <?endif; ?>
+       [<?= $res['reservation_type_name'] ?>, Proposal <span title="<?= $res['eus_proposal_name'] ?>" id="res_<?= $res['reservation_id'] ?>_proposal_id"><?= $res['eus_proposal_id'] ?>]</span>
+    </li>
+  <?php endforeach; ?>
+  </ul>
+
+
+</div>

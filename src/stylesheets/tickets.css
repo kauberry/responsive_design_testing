@@ -1,0 +1,290 @@
+#ticket_filter fieldset {
+  padding-bottom:0px;
+  padding-top: 5px;	
+}
+
+#ticket_filter input, #ticket_filter li {
+  margin-bottom: 0;
+  margin-left:0;
+  list-style-image:none;
+}
+
+
+/* styles for ticket overview listing page */
+
+
+
+.ticket_entry_container{
+/*
+  border: 1px solid #ccc;
+  border-radius: 5px 5px 0px 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+
+*/
+}
+
+
+.ticket_entries{
+  border: 2px solid #aaa;
+  font-size:larger;
+  padding:1em;
+  border-radius: 0px 0px 10px 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+}
+
+.ticket_entries li{
+  list-style:none;
+  margin:0 !important;
+  margin-bottom: 1em !important;
+}
+
+.ticket_id a {
+  color:#fff;
+}
+
+.ticket_footer{
+  border: 1px solid #ccc;
+  background-color:#eee;
+  border-radius: 0px 0px 5px 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+  padding:3px 5px 3px 5px;
+  margin-top:-1px;
+  position:relative;
+}
+
+/* priority classes */
+.high_priority .ticket_footer{
+}
+.medium_priority{
+  
+}
+.low_priority{
+  
+}
+
+.ticket_entry_header{
+  padding: 3px 10px 3px 10px;
+  font-size:0.75em;
+  font-weight:bold;
+  background-color:#999;
+  color:#fff;
+   border-radius: 5px 5px 0px 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+
+}
+
+.ticket_body{
+  position:relative;
+  padding:8px;
+  padding-bottom:15px;
+  font-size:0.85em;
+  min-height:180px;
+  border: 1px solid #ccc;
+}
+
+.short{
+  min-height:0;
+}
+
+.left_equipment_block {
+  position:relative;
+  /*float:left;*/
+  vertical-align:top;
+  left:0px;
+  width:36%;
+}
+
+.right_equipment_block {
+  display:inline-block;
+  position:relative;
+  margin-left:30px;
+  width:56%;
+  right:0px;
+  vertical-align:top;
+}
+
+
+/*
+.right_block {
+  position:relative;
+  right:0px;
+  float:right;
+  vertical-align:top;
+}
+*/
+
+.full_width_block {
+  position:relative;
+  width:98%;
+}
+
+
+.ticket_body_summary{
+  width:45%;
+  position:relative;
+}
+
+.ticket_body_summary p {
+  margin-bottom:0px !important;
+}
+
+.full_text {
+  height:auto;
+}
+
+.truncated_text {
+  overflow:hidden;
+  height: 160px;
+  position:relative;
+}
+
+.ticket_body_summary p.more_button {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0; padding: 20px 0; 
+
+  /* "transparent" only works here because == rgba(0,0,0,0) */
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgba(255,255,255,0)),color-stop(1, rgba(255,255,255,100)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,100));
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,100));
+  background-image: -ms-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,100));
+  background-image: -o-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,100));
+}
+
+.ticket_body_summary .more_button button {
+background: rgb(74,96,109); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(74,96,109,1) 0%, rgba(181,189,200,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(74,96,109,1)), color-stop(100%,rgba(181,189,200,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(74,96,109,1) 0%,rgba(181,189,200,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(74,96,109,1) 0%,rgba(181,189,200,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(74,96,109,1) 0%,rgba(181,189,200,1) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(74,96,109,1) 0%,rgba(181,189,200,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a606d', endColorstr='#b5bdc8',GradientType=0 ); /* IE6-9 */
+  padding: 3px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+  /*box-shadow: rgba(0, 0, 0, 1.0) 0 1px 0, rgba(0, 0, 0, 0.5) 0 0 10px, rgba(0, 0, 0, 0.50) 0 0 20px, rgba(0, 0, 0, 0.50) 0 0 30px;*/
+  text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+  color: white;
+  font-size: 13px;
+  text-decoration: none;
+  vertical-align: middle;
+  
+}
+
+
+
+
+
+
+.ticket_body_summary .more_button button:hover {
+  border-top-color: #28597A;
+background: rgb(70,75,78); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(70,75,78,1) 0%, rgba(149,152,157,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(70,75,78,1)), color-stop(100%,rgba(149,152,157,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(70,75,78,1) 0%,rgba(149,152,157,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(70,75,78,1) 0%,rgba(149,152,157,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(70,75,78,1) 0%,rgba(149,152,157,1) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(70,75,78,1) 0%,rgba(149,152,157,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#464b4e', endColorstr='#95989d',GradientType=0 ); /* IE6-9 */
+  color: #ffffff;
+}
+
+.ticket_body_details{
+  position:absolute;
+  width:45%;
+  right:5px;
+  top:5px;
+  border: 1px solid #aaa;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  padding:10px;  
+}
+
+.ticket_status{
+  width: 70%;
+  font-size:0.75em;
+  font-style:italic;  
+}
+
+.ticket_buttons{
+  float:right;
+  width:40%;
+  margin-bottom:5px;
+}
+
+/* button styling */
+.ticket_buttons input[type="button"], .ticket_buttons a{
+  color:#ffffff;
+  float:right;
+  background-color:#bbb;
+  border: 1px solid #aaa;  
+  display:block;
+  font-size:0.75em !important;
+  font-weight:600;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 2px;
+  -moz-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.3);
+  text-decoration:none;
+  text-align:center;
+  padding:0 5px 0 5px;  
+  margin:0 5px 0 0;
+  width:4.5em;
+}
+
+.ticket_buttons a{
+  height:16px;
+  padding:0;
+}
+
+
+.ticket_footer input[type="button"],.ticket_footer a{
+  background-color:rgb(213,117,0);
+  border:1px solid #8c440e;  
+}
+
+.ticket_buttons button{
+  width:auto;
+  overflow:visible;
+  padding:4px 10px 3px 7px; /* IE6 */
+}
+
+.ticket_buttons button[type]{
+  padding:5px 10px 5px 7px; /* Firefox */
+ line-height:17px; /* Safari */
+}
+
+*:first-child+html button[type] {
+  padding:4px 10px 3px 7px; /* IE7 */
+}
+
+.ticket_buttons input[type="button"]:hover, .ticket_buttons a:hover{
+  background-color:#b15611;
+}
+
+dl.ticket_equipment_block dd{
+margin-bottom:5px !important;
+margin-left:10px;  
+}
+
+#user_listing{
+  border:none;
+}

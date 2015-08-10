@@ -1,0 +1,62 @@
+<?php
+  if(array_key_exists('start_time',$reservation_info) && !empty($reservation_info['start_time'])){
+    $start_time_obj = new DateTime($reservation_info['start_time']);
+    $start_date = " value='{$start_time_obj->format('m/d/Y')}'";
+    $start_time = " value='{$start_time_obj->format('g:ia')}'";
+  }else{
+    $start_date = "";
+    $start_time = "";
+  }
+  if(array_key_exists('end_time',$reservation_info) && !empty($reservation_info['end_time'])){
+    $end_time_obj = new DateTime($reservation_info['end_time']);
+    $end_date = " value='{$end_time_obj->format('m/d/Y')}'";
+    $end_time = " value='{$end_time_obj->format('g:ia')}'";
+  }else{
+    $end_date = "";
+    $end_time = "";
+  }
+
+?>
+
+        <legend>Reservation Date</legend>
+        <div class="full_width_block" id="advanced_time_picker">
+          <div class="left_block">
+            <label for="start_date_picker">Start</label>
+            <input type="text" id="start_date_picker" class="date start borderless"<?= $start_date ?>/>
+            <input type="text" id="start_time_picker" class="time start"<?= $start_time ?>/>
+          </div>
+          <div class="right_block">
+            <label for="end_date_picker">End</label>
+            <input type="text" id="end_date_picker" class="date end borderless"<?= $end_date ?>/>
+            <input type="text" id="end_time_picker" class="time end"<?= $end_time ?>/>
+          </div>
+          <div id="reservation_time_display" class='full_width_block' style="display:none;text-align:center;">
+            <span id="reservation_start_time_display"></span> &ndash; <span id="reservation_end_time_display"></span>
+          </div>
+        </div>
+<script type="text/javascript">
+  $(function(){
+    $('#advanced_time_picker .date').attr("placeholder","Enter Date").datepicker({
+      format: 'm/d/yyyy',
+      autoclose: true,
+      startDate: new Date(),
+      onSelect: function(selectedDate,obj){
+        var el = $('#' + obj.id);
+        var time_element_specifier;
+        if(el.hasClass('start')){
+          time_element_specifier = 'start';
+        }else if(el.hasClass('end')){
+          time_element_specifier = 'end';
+        }
+        // set_datetime_from_advanced_picker(time_element_specifier,selectedDate);
+      }
+    });
+    $('#advanced_time_picker .time').attr("placeholder","Pick a Time").timepicker({
+      timeFormat: 'g:ia',
+      step: 15,
+      minTime: '7:00am'
+    });
+    // $('#advanced_time_picker').datepair();
+
+  });
+</script>

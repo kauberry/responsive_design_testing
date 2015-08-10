@@ -1,0 +1,16 @@
+<div class="reservation_item_container" id="reservation_item_<?= $res['reservation_id'] ?>">
+  <div class="reservation_header" id="reservation_header_<?= $res['reservation_id'] ?>" style="background-color:<?= $res['user_base_color'] ?>;color:<?= $res['text_color'] ?>;">
+    <span class="reservation_class" id="reservation_class_<?= $res['reservation_id'] ?>">Reservation Type: <?= $res['reservation_type_name'] ?></span>
+    <span style="float:right;font-style:italic;"></span>
+  </div>
+  <div class="reservation_body" id="reservation_body_<?= $res['reservation_id'] ?>" style="border-color:<?= $res['user_border_color'] ?>;">
+    <div class="reservation_buttons ticket_buttons" id="reservation_buttons_<?= $res['reservation_id'] ?>">
+      <a href="https://tix.emsl.pnl.gov/nmr/ticket/delete/365">Delete</a>
+      <a href="https://tix.emsl.pnl.gov/nmr/ticket/edit/365">Edit</a>
+    </div>
+  </div>
+  <div class="reservation_footer" id="reservation_footer_<?= $res['reservation_id'] ?>">
+    <span class="reservation_created" id="reservation_created_<?= $res['reservation_id'] ?>"></span>
+    <span class="reservation_updated" id="reservation_updated_<?= $res['reservation_id'] ?>"></span>
+  </div>
+</div>

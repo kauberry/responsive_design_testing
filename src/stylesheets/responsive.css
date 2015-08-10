@@ -1,0 +1,267 @@
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 150%;
+}
+
+.user_login_info{
+  position:absolute;
+  left:10px;
+  bottom:5px;
+  color:#ffffff;
+  text-shadow: -1px -1px 1px rgba(20, 20, 20, 0.65);
+  line-height:13px;
+}
+
+.banner_bar_background{
+  margin-top:20px;
+  background-color:#ffffff;
+  height:53px;
+  width:940px;
+  position:relative;
+}
+
+.banner_bar{
+  height:36px;
+  bottom:2px;
+  position:absolute;
+}
+
+.banner_bar_left{
+  width:220px;
+  left:0px;
+}
+
+.banner_bar_right{
+  width:718px;
+  left:222px;
+}
+
+.banner_bar_green{
+  background-image: #356d43;
+  background-image: -webkit-linear-gradient(top, #356d43 0%, #216a38 100%);
+  background-image: -moz-linear-gradient(top, #356d43 0%, #216a38 100%);
+  background-image: -o-linear-gradient(top, #356d43 0%, #216a38 100%);
+  background-image: -ms-linear-gradient(top, #356d43 0%, #216a38 100%);
+  background-image: linear-gradient(top, #356d43 0%, #216a38 100%);
+}
+
+.banner_bar_orange{
+  background-image: #c47c27;
+  background-image: -webkit-linear-gradient(top, #c47c27 0%, #be531b 100%);
+  background-image: -moz-linear-gradient(top, #c47c27 0%, #be531b 100%);
+  background-image: -o-linear-gradient(top, #c47c27 0%, #be531b 100%);
+  background-image: -ms-linear-gradient(top, #c47c27 0%, #be531b 100%);
+  background-image: linear-gradient(top, #c47c27 0%, #be531b 100%);
+}
+
+.banner_bar_grey{
+  background-image: #9f9f9f;
+  background-image: -webkit-linear-gradient(top, #9f9f9f 0%, #868788 49%, #767679 100%);
+  background-image: -moz-linear-gradient(top, #9f9f9f 0%, #868788 49%, #767679 100%);
+  background-image: -o-linear-gradient(top, #9f9f9f 0%, #868788 49%, #767679 100%);
+  background-image: -ms-linear-gradient(top, #9f9f9f 0%, #868788 49%, #767679 100%);
+  background-image: linear-gradient(top, #9f9f9f 0%, #868788 49%, #767679 100%);
+}
+
+#site_label{
+  color:#ffffff;
+  font-size:1.4em;
+  text-shadow: -1px -1px 1px rgba(20, 20, 20, 0.65);
+  margin-top:7px;
+  margin-left:20px;
+}
+
+
+.page_wrapper {
+  width:100%;
+  position:relative;
+}
+
+#page_header {
+  position:relative;
+}
+
+#pnnllogo_container {
+  height:123px;
+  max-width:242px;
+}
+
+#siteNav{
+  position:absolute;
+  right: 5px;
+  bottom: 0px;
+}
+
+
+#pnnlSearch{
+  float: right;
+  position: relative;
+  text-align: left;
+  padding: 0 0 0 5px;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+form#pnnlSearch {
+  padding-top:5px;
+  vertical-align: bottom;
+}
+
+#pnnlNav {
+  line-height: 36px;
+  background-position: left 2px;
+  padding-left: 93px;
+}
+
+#pnnlNav, #pnnlNav li {
+  display: inline;
+}
+
+#pnnlNav li a:link, #pnnlNav li a:visited {
+  color: #707276;
+  padding: 0 4px 0 8px;
+  font-weight: bold;
+  border-left: 1px solid #b2b3b5;
+}
+
+#pnnllogo {
+  width:100%;
+  height:100%;
+  background: url("/resources/images/pnnl_logo_battelle.png");
+  background-size: 242px 123px;
+}
+
+#doe_logo_container {
+  height:40px;
+  width:161px;
+  position:absolute;
+  right:0;
+  top:15px;
+}
+
+#doelogo {
+  width:100%;
+  height:100%;
+  background: url("/resources/images/doe_seal_plus_name.png");
+  background-size: 161px 40px;
+  background-repeat:no-repeat;
+}
+
+#content {
+  margin-left:48px;
+  margin-right:48px;
+  padding: 0 10px;
+  background-color:#fff;
+  height:100vh;
+}
+
+.intranet_bg {
+  background: url("/resources/images/intranet_bg_l.png") repeat-y;
+  background-size: 48px 470px;
+  background-color: #b2b3b5 !important;
+  width:48px;
+}
+
+#intranet_bg_left {
+  height:100vh;
+  position:fixed;
+  left:0;
+  top:0;
+}
+#intranet_bg_right {
+  transform: rotate(180deg);
+  height:100vh;
+  position:fixed;
+  right:0;
+  top:0;
+}
+
+#searchSubmit {
+    background: url("/resources/images/search_button.png");
+    background-size: 23px 22px;
+}
+
+@media
+(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .intranet_bg {
+    background: url("/resources/images/intranet_bg_l@2x.png") repeat-y;
+    background-size: 48px 470px;
+  }
+  #pnnllogo {
+    background: url("/resources/images/pnnl_logo_battelle@2x.png");
+    background-size: 242px 123px;
+  }
+  #doelogo {
+    background: url("/resources/images/doe_seal_plus_name@2x.png");
+    background-size: 161px 40px;
+  }
+  #searchSubmit {
+    background: url("/resources/images/search_button@2x.png");
+    background-size: 23px 22px;
+  }
+}
+
+@media
+(-webkit-min-device-pixel-ratio: 3),
+(min-resolution: 192dpi) {
+  .intranet_bg {
+    background: url("/resources/images/intranet_bg_l@3x.png") repeat-y;
+    background-size: 48px 470px;
+
+  }
+}
+
+@media (max-width: 500px) {
+  #pnnllogo {
+    background-image: url("/resources/images/pnnl_swoosh.png");
+    background-size: 110px 60px;
+    background-repeat:no-repeat;
+  }
+}
+
+
+@media (max-width:500px) and (-webkit-min-device-pixel-ratio: 2), (max-width:500px) and (min-resolution: 192dpi) {
+  #pnnllogo {
+    background-image: url("/resources/images/pnnl_swoosh@2x.png");
+    background-size: 110px 60px;
+    background-repeat:no-repeat;
+  }
+    #pnnllogo_container {
+    height:60px;
+    max-width:242px;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .intranet_bg {
+    background-image:none;
+    width:2%;
+  }
+  #content {
+    margin-left:0;
+    margin-right:0;
+  }
+
+}
+
+@media (max-width:900px) {
+  #pnnlNav {
+    display:none;
+  }
+
+}
+
+@media (max-width:319px){
+  #pnnllogo {
+    display:none;
+  }
+}
+@media (max-width:190px){
+  #doelogo {
+    display:none;
+  }
+}
+
+}

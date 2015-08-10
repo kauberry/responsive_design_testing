@@ -1,0 +1,140 @@
+.ticket_subhead{
+  font-size: 12px;
+  font-style:italic;
+  color:#333;
+  text-align:center;
+  margin-left:2em;
+}
+h1.underline {
+  border-bottom: 2px solid #aaa;
+}
+
+div.edit_container input[type='text'], div.edit_container textarea {
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+
+}
+
+
+.admin_use_only {
+  position: absolute;
+  color:red; 
+  top: -20px; 
+  right: -20px; 
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.equipment_dropdown{
+  width:100%;
+  margin-bottom: 20px;
+}
+
+.nonfield_label{
+  margin-top:10px;
+}
+
+
+.comment_footer{
+  border: 1px solid #ccc;
+  border-top:none;
+  background-color:#fff;
+  border-radius: 0px 0px 5px 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+  padding:3px 8px 3px 5px;
+  margin-top:-1px;
+  position:relative;
+  margin-bottom: 1em;
+  height:25px;
+  color:#fff;
+}
+
+.time_edit_button {
+	position:absolute;
+	right:0;
+	margin-right:5px;
+	margin-bottom:5px;
+}
+
+.time_edit_button input{
+  font-size:0.7em !important;
+  margin-bottom:0 !important;
+  margin-left:5px;
+}
+
+.comment_header{
+  padding: 6px 10px 6px 10px;
+  font-weight:bold;
+  background-color:#999;
+  color:#fff;
+   border-radius: 5px 5px 0px 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+
+}
+
+.comment_body{
+  position:relative;
+  padding:8px;
+  padding-bottom:15px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  background-color:#fff;
+}
+
+.comment_entry_container{
+  width:98%;
+}
+
+.retrieved_comments{
+  margin-top:3em;
+}
+
+.discussions_container .buttons{
+  height:3em;
+}
+
+.buttons a {
+  padding: 6px 7px 3px 7px;
+  margin: 10px 0px 10px 15px;
+  text-align: center;
+  text-decoration:none;
+  font-size:1em !important;
+}
+
+.elapsed_time_summary{
+    text-align:right;
+    font-weight:bold;
+    color:#4f4f4f;
+  
+}
+
+.fieldset_notification_banner {
+  text-align:center;
+  vertical-align: middle;
+}
+
+.fieldset_notification_banner input[type="button"] {
+  float:none !important;
+  clear:both;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:15px;
+}
+
+.fieldset_notification_banner_text {
+  font-size: 1.25em;
+  font-style: italic;
+  color: #999;
+
+}
+
+#s2id_time_tracking_user_id{
+  width:340px;
+}

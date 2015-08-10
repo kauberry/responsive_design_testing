@@ -1,0 +1,45 @@
+<div>
+  <h2><?= $d->format('M jS Y (l)') ?></h2>
+  <div id="reservation_slots_<?= $eus_instrument_id ?>_<?= $d->format('Ymd') ?>" class="reservation_slot_info">
+    <?php foreach($time_slots as $ts): ?>
+      <?php
+        $selected = array_key_exists('selected',$ts) && !empty($ts['selected']) ? $ts['selected'] : "";
+        $input_id = "ts_i{$eus_instrument_id}_s{$ts['start_time_obj']->format('Hi')}_e{$ts['end_time_obj']->format('Hi')}";
+       ?>
+    <input type="radio" id="<?= $input_id ?>" name="time_slot_select"<?= $ts['disabled'] ?><?= $selected ?> />
+    <label for="<?= $input_id ?>"><span><?= $ts['display_time'] ?> <?= $ts['state'] ?></span></label>
+    <br />
+    <?php endforeach; ?>
+  </div>
+  <script type="text/javascript">
+    $(function(){
+      //select the appropriate box if appropriate
+      // debugger;
+      var res_start_date = $('#reservation_start_time').val().length > 0 ? new Date($('#reservation_start_time').val().split('-').join('/')) : null;
+      var res_end_date = $('#reservation_end_time').val().length > 0 ? new Date($('#reservation_end_time').val().split('-').join('/')) : null;
+      if(res_start_date && res_end_date){
+        var st = (res_start_date.getHours() < 10 ? "0" : "") + res_start_date.getHours() + (res_start_date.getMinutes() < 10 ? "0" : "") + res_start_date.getMinutes();
+        var et = (res_end_date.getHours() < 10 ? "0" : "") + res_end_date.getHours() + (res_end_date.getMinutes() < 10 ? "0" : "") + res_end_date.getMinutes();
+        var selected_id = '#ts_i' + initial_reservation_info.eus_instrument_id + '_s' + st + '_e' + et;
+        var selected = $(selected_id);
+        var dis = selected.prop('disabled');
+        var d = new Date();
+        d.setHours(0,0,0,0);
+        if(res_start_date == d){          
+          if(dis == true){
+            selected.enable();
+          }
+          selected.click();
+          if(dis == true){
+            selected.disable();
+          }
+        }
+        
+        $('#time_slot_container').show();
+        $('.reservation_slot_info input[type="radio"]').change(function(){
+          check_ready_to_submit();
+        });
+      }
+    });
+  </script>
+</div>

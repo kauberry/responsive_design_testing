@@ -1,0 +1,104 @@
+<div id="calendar_holder">
+  <?php
+    $first_date = new DateTime($calendar_format[0]['date_info']);
+    $last_date = new DateTime($calendar_format[6]['date_info']);
+    $last_week = clone $first_date;
+    $last_week->modify('-7 days');
+    $next_week = clone $first_date;
+    $next_week->modify('+7 days');
+  ?>
+  <div class="week-header">
+    <?php foreach(array_keys($calendar_format) as $weekday_id): ?>
+      <?php $weekday_info = $calendar_format[$weekday_id]; ?>
+      <?php $colnum = $weekday_id += 1; ?>
+    <div id="day_<?= $weekday_info['date_info'] ?>" class="week-grid col_<?= $colnum ?><?= $weekday_info['is_weekend'] ?><?= $weekday_info['is_today'] ?>">
+      <div class="date_block">
+        <span id="daynum_<?= $weekday_info['date_info'] ?>" class="daynum_<?= $weekday_info['daynum_text'] ?> daynum_text<?= $weekday_info['is_today'] ?>"><?= $weekday_info['daynum_text'] ?></span>
+        <span id="dayname_<?= $weekday_info['date_info'] ?>" class="dayname_text<?= $weekday_info['is_today'] ?>"><?= $weekday_info['dayname_text'] ?></span>
+      </div>
+    </div>
+    <?php endforeach; ?>    
+  </div>
+
+  <div id="calendar_container" class="seven">
+    <?php $time_min = intval($current_time->format('H')) * 60 + intval($current_time->format('i')); ?>
+    <?php $line_loc_perc = $time_min / 1440 * 100.0; ?>
+    <?php $disp_hr = $current_time->format('g'); ?>
+    <?php $disp_min = $current_time->format('i'); ?>
+    <?php $disp_ampm = $current_time->format('A'); ?>
+
+    <div id="timed-scroll" class="sc-view now-line" style="left: 5px; right: 0px; top: <?= $line_loc_perc ?>%; height: 15px">
+      <div class="time" style="width: 58px; margin-top:0px; margin-left: -65px">
+        <span id="line_hour"><?= $disp_hr ?></span>:<span id="line_min"><?= $disp_min ?></span><span id="line_ampm"> <?= $disp_ampm ?></span>
+      </div>
+      <div class="line"></div>
+    </div>
+
+    <?php foreach(array_keys($calendar_format) as $weekday_id): ?>
+      <?php $weekday_info = $calendar_format[$weekday_id]; ?>
+      <?php $colnum = $weekday_id += 1; ?>
+    <div id="day_column_<?= $weekday_info['date_info'] ?>" class="vertical-day col_<?= $colnum ?><?= $weekday_info['is_weekend'] ?><?= $weekday_info['is_today'] ?>"></div>
+    <?php endforeach; ?>
+    <div id="reservations" class="reservations_block">
+      
+    <?php foreach($reservations as $res): ?>
+      <?php
+        switch($res['reservation_type_id']){
+          case "REG_USER":
+          case "EXT_USER":
+            $view_name = "user_entry_view";  
+            break;
+          case "MAINT_UNSCHED":
+          case "MAINT_SCHED":
+            $view_name = "maint_entry_view";
+            break;
+          case "VENDOR_VISIT":
+            $view_name = "vendor_visit_entry_view";
+            break;
+          default:
+            $view_name = "user_entry_view";
+        }
+      ?>
+      <?php foreach($res['time_slot_info'] as $slot): ?>
+        <?php if(($slot['start_timestamp'] <= $week_end_date && $slot['end_timestamp'] <= $week_end_date) && ($slot['start_timestamp'] >= $week_start_date && $slot['end_timestamp'] >= $week_start_date)): ?>
+        <?php $in_progress = ($current_time >= $res['start_timestamp'] && $current_time < $res['end_timestamp']) ? " reservation_in_progress" : ""; ?>
+        <?php $this->load->view("scheduling/calendar_item_types/{$view_name}.html", array('res' => $res, 'slot' => $slot, 'in_progress' => $in_progress)); ?>
+        <?php endif; ?>
+      <?php endforeach; ?>  
+    <?php endforeach; ?>
+    
+    </div>     
+  </div>
+  
+  
+  <div class="sc-view week-canvas-day-separator" style="left: 45px; right: 0px; top: 0px; bottom: 0px;">
+    <?php foreach(array_keys($calendar_format) as $weekday_id): ?>
+      <?php $weekday_info = $calendar_format[$weekday_id]; ?>
+      <?php $colnum = $weekday_id += 1; ?>      
+    <div class="line col-start<?= $colnum ?>"></div>
+    <?php endforeach; ?>
+  </div>
+  <div class="week-grid sc-view" style="left: 0px; right: 0px; top: 30px; bottom: 0px;">  
+  <?php for($gridline = 0; $gridline < 24*60; $gridline += 30): ?>
+    <?php $onhour = $gridline % 60 == 0 ? TRUE : FALSE; ?>
+    <?php if($onhour): ?>
+      <?php $hourlabel = $gridline == 720 ? "Noon" : $gridline / 60; ?>
+      <?php $hourlabel = $gridline > 720 ? ($gridline - 720) / 60 : $hourlabel; ?>
+      <?php $hourlabel = $gridline == 0 ? "" : $hourlabel; ?>
+    <div class="rt<?= $gridline ?> time" style="opacity:1"><?= $hourlabel ?></div>
+    <?php endif; ?>
+    <?php $hourline = $onhour ? " even" : ""; ?>
+    <div class="rt<?= $gridline ?> line<?= $hourline ?>"></div>
+  <?php endfor; ?>
+  </div>
+  <script type="text/javascript">
+      var first_date = '<?= $first_date->format('j M') ?>';
+      var last_date = '<?= $last_date->format('j M') ?>';
+      var current_include_date = '<?= $include_date ?>';
+      var formatted_include_date = '<?= $formatted_include_date ?>';
+      var last_week = '<?= $last_week->format('Ymd') ?>';
+      var next_week = '<?= $next_week->format('Ymd') ?>';
+      var cal_year = '<?= $first_date->format('Y') ?>';
+
+  </script>
+</div>

@@ -1,0 +1,84 @@
+<div id="upcoming_reservations">
+  <?php if(!empty($upcoming_reservations['reservations'])): ?>
+    <?php foreach($upcoming_reservations['reservations'] as $category => $by_instrument): ?>
+      <?php if($category != "My Reservations"): ?>
+      <h2 style="margin-top:2em;"><?= $category ?></h2>
+      <?php endif; ?>
+      <?php foreach($by_instrument as $eus_instrument_name => $reservations): ?>
+        <div style="text-align:center;font-size:1.3em;font-weight:bold;color:#d57500;"><?= $eus_instrument_name ?></div>
+        <?php foreach($reservations as $res_id => $res_info): ?>
+          <?php 
+            $st = new DateTime($res_info['start_time']);
+            $et = new DateTime($res_info['end_time']);
+          ?>
+          <div style="margin:1em 4em 1em 3em;">
+            <div class="ticket_entry_header">
+              <div class="left_block">
+                <?php if($category == "Proxy Reservations"): ?>
+                Proxy For: <?= $res_info['eus_user_name'] ?>  
+                <?php else: ?>
+                &nbsp;
+                <?php endif; ?>
+              </div>
+              <div class="right_block" style="text-align:right;">
+                <a href="<?= base_url() ?><?= $res_info['view_url'] ?>" style="text-decoration:none;color:#ffffff;">Reservation #<?= $res_id ?></a>
+              </div>
+            </div>
+            <div class="ticket_body short" style="text-align:center;padding-bottom:0;" id="reservation_<?= $res_id ?>_body">
+              <?php if($st->format('Ymd') != $et->format('Ymd')): ?>
+              <h2><?= $st->format('g:ia') ?> on <?= $st->format('m/d/Y (l)') ?>&ndash;<?= $et->format('g:ia') ?> on <?= $et->format('m/d/Y (l)') ?></h2>
+              <?php else: ?>
+              <h2><?= $st->format('g:ia') ?>&ndash;<?= $et->format('g:ia') ?> on <?= $st->format('m/d/Y (l)') ?></h2>
+              <?php endif; ?>
+              <h3>
+                Current Status: <?= $res_info['reservation_status_name'] ?>
+                <?php if($res_info['reservation_status_type_id'] == 2): ?>
+                  <?php 
+                    $right_now = new DateTime();
+                    $minutes_remaining_interval = round(($et->getTimestamp() - $right_now->getTimestamp()) / 60);
+                  ?>
+                  (about <?= $minutes_remaining_interval ?> minutes remaining)
+                <?php endif; ?>
+                
+              </h3>
+            </div>
+            <div class="ticket_footer" style="padding-top:5px;padding-bottom:0;">
+              &nbsp;
+              <div class="ticket_buttons">
+                <input type="button" class="edit_button res_button" id="edit_reservation_<?= $res_id ?>" value="Edit" />
+                <input type="button" class="delete_button res_button" id="delete_reservation_<?= $res_id ?>" value="Delete" />
+                <input type="hidden" id="delete_reservation_id" value="<?= $res_id ?>" />
+              </div>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      <?php endforeach; ?>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <h2>You currently have no reservations pending. <a href="<?= base_url() ?>scheduling/reservation">Go make one!</a></h2>
+  <?php endif; ?>
+</div>
+
+<script type="text/javascript">
+$(function(){
+  $('input.res_button').click(function(event){
+    var b = $(event.target);
+    var res_id = parseInt(b.nextAll('input[type="hidden"]').val(),10);
+    var button_type = b.prop('id').replace(/_reservation_\d+/,"");
+    var url = base_url + 'scheduling/reservation/' + button_type + '/' + res_id;
+    if(button_type == 'delete'){
+      var proceed = window.confirm("Are you sure you want to delete this reservation?");
+      if(proceed){
+        var posting = $.getJSON(url, function(data){
+            alert(data);
+        });
+        posting.done(function(data){
+          alert(data);
+        });
+      }
+    }else{
+      window.location = url;
+    }
+  });
+});
+</script>

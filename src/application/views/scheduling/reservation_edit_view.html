@@ -1,0 +1,275 @@
+<div id="reservation_info_<?= $reservation_identifier ?>">
+  <div>
+    <form name="reservation_edit" id="reservation_edit" class="themed">
+      <?php $user_display = (array_key_exists('reservation_type_id',$reservation_info) && strpos($reservation_info['reservation_type_id'],"MAINT")) ? "display:none;" : ""; ?>
+      <fieldset id="user_selector_container" style="<?= $user_display ?>">
+        <legend>User</legend>
+        <select id="user_selector" name="eus_user_id" class="req_field" style="width:100%;">
+        <?php foreach($current_user_list as $id => $info): ?>
+          <?php $selected = $id == $user_info['eus_user_id'] ? " selected=\"selected\"" : ""; ?>
+          <?php $user_name = "{$info['first_name']} {$info['last_name']}"; ?>
+          <option value="<?= $id ?>"<?= $selected ?>><?= $user_name ?></option>
+        <?php endforeach; ?>
+        </select>
+        
+        <script type="text/javascript">
+  
+  $(function(){
+<?php if($this->scheduling_access_level > 400): ?>
+    $('#reservation_type_selector').select2({
+      placeholder:"Select a Reservation Type..."
+    });
+    
+    $('#reservation_type_selector').change(function(e){
+      var selected_type = $(e.target).val();
+      $('#reservation_type_description').html(reservation_type_list[selected_type].description);
+      var selector_legend = selected_type == "REG_USER" ? 'User' : 'Host';
+      $('#comments_container legend').html("Reservation Comments");
+      if(selected_type.indexOf('USER') < 0){
+        $('#proposal_selector_container').hide();
+        $('#proposal_selector').select2('enable', false);
+        if(selected_type.indexOf('VENDOR') >= 0){
+          $('#user_selector_container').show();
+        }else{
+          $('#user_selector_container').hide();
+          $('#comments_container legend').html("Maintenance Description");
+        }
+      }else{
+        $('#user_selector_container').show();
+        if($('#instrument_selector').val()){
+          $('#proposal_selector_container').show();
+          $('#proposal_selector').select2('enable', true);
+        }
+      }
+      if(selected_type == "EXT_USER"){
+        $('#external_user_selector').select2({
+          placeholder: 'Select an EMSL User...',
+          minimumInputLength: 3,
+          ajax: {
+            url: function(term){
+              return base_url + 'eus_access/get_eus_user_list/' + term;
+            },
+            dataType: 'json',
+            quietMillis: 250,
+            type: "GET",
+            results: function(data,page){
+              return {results: data.items};
+            },
+            cache:true
+          },
+        });
+        $('#external_user_selector').change(function(){
+          check_ready_to_submit();
+        });
+        $('#external_user_selector').select2('enable',true);
+        $('#external_user_selector_container').show();
+      }else{
+        $('#external_user_selector').select2('enable',false);
+        $('#external_user_selector_container').hide();
+      }
+      if($('#instrument_selector').val()){
+        // if(selected_type.indexOf('USER') < 0){
+        if(selected_type != "REG_USER"){          
+          $('#time_slot_container').hide();
+          load_advanced_datepicker();
+        }else{
+          get_availability();
+          clear_advanced_datepicker();
+          $('#time_slot_container').show();
+        }
+      }
+      $('#user_selector_container > legend').html(selector_legend);
+      if(selected_type.length > 0){
+        $('#instrument_selector').select2('enable',true);
+      }else{
+        $('#instrument_selector').select2('enable',false);
+      }
+      check_ready_to_submit();
+    });
+    
+    
+    
+    
+    
+    $('#user_selector').select2({
+      placeholder:"Select a User to Schedule..."
+    });
+
+  <?php if(isset($reservation_info['reservation_type_id'])): ?>
+    $('#reservation_type_description').html('<?= $reservation_type_list[$reservation_info["reservation_type_id"]]["description"] ?>');
+  <?php endif; ?>
+<?php else: ?>
+    $('#reservation_type_selector').select2();
+    $('#reservation_type_selector').select2("enable",false);
+    $('#user_selector').select2();
+    if($('#user_selector option').length == 1){
+      $('#user_selector').select2("enable",false);
+    }else{
+      $('#user_selector').change(function(){
+        //proxy user change detected, reload token availability for new user
+        var ds = $("#datepicker").datepicker('getFormattedDate');
+        if(ds.length == 0){
+          ds = $.datepicker.formatDate('mm/dd/yy',new Date());
+        }
+        if(current_instrument_id >= 0){
+          get_availability();
+          configure_reservation_picker(ds);
+        }
+      });
+    }
+    $('#reservation_type_description').html('<?= $reservation_type_list["REG_USER"]["description"] ?>');
+<?php endif; ?>
+    $('#reservation_type_description_container').show();
+  });
+        </script>          
+      </fieldset>
+      
+      
+      
+      <fieldset id="reservation_type_container">
+        <legend>Reservation Type</legend>
+        <select id="reservation_type_selector" name="reservation_type_id" class="req_field" style="width:100%;">
+          <?php //locked to "REG_USER" for non-admin users  ?>
+          <?php if($this->scheduling_access_level > 400): ?>
+            <option></option>
+          <?php endif; ?>
+            <?php foreach($reservation_type_list as $id => $res_type_info): ?>
+              <?php if(isset($reservation_info['reservation_type_id'])): ?>
+                <?php $selected = $id == $reservation_info['reservation_type_id'] ? " selected=\"selected\"" : ""; ?>
+              <?php else: ?>
+                <?php $selected = ""; ?>
+              <?php endif; ?>
+            <option value="<?= $id ?>"<?= $selected ?>><?= $res_type_info['name'] ?></option>
+            <?php endforeach; ?>
+        </select>
+        <div class="full_width_block" id="reservation_type_description_container" style="display:none;padding:10px 0 0 20px;">
+          <span id="reservation_type_description" class="small_print">&nbsp;</span>
+        </div>
+        <?php if($this->scheduling_access_level > 400): ?>
+        <div class="full_width_block" id="external_user_selector_container" style="display:none;">
+          <input type="text" style="width:100%;margin-top:10px;" id="external_user_selector" name="ext_eus_user_id">
+        </div>
+        <?php endif; ?>
+      </fieldset>
+      
+      
+      <fieldset>
+        <legend>Instrument</legend>
+        <div class="full_width_block">
+          <?php $disabled = $this->scheduling_access_level > 400 ? " disabled='disabled'" : ""; ?>
+          <select id="instrument_selector" name="eus_instrument_id" class="req_field" style="width:100%">
+            <option></option>
+          <?php foreach($instrument_list as $instrument_id => $inst_info): ?>
+            <?php $selected = $instrument_id == $reservation_info['eus_instrument_id'] ? " selected=\"selected\"" : ""; ?>
+            <option value="<?= $instrument_id ?>"<?= $selected ?>><?= $inst_info['friendly_name'] ?></option>
+          <?php endforeach; ?>          
+          </select>
+        </div>
+        <div class="full_width_block"></div>
+      </fieldset>
+      
+      <?php $rtp_display = (array_key_exists('reservation_type_id',$reservation_info) && $reservation_info['reservation_type_id'] == "REG_USER") ? "" : " style=\"display:none;\""; ?>
+      <fieldset id="time_slot_container"<?= $rtp_display ?>>
+        <legend>Reservation Date</legend>
+        <div class="full_width_block" id="insufficient_tokens_display" style="display:none;"></div>
+        <div class="full_width_block" id="reservation_slot_display" style="display:none;">
+          <div class="left_block">
+            <div id="datepicker" name="datepicker" class="borderless"></div>
+            <div id="proposal_restrictions"></div>
+          </div>
+          <div class="right_block">
+            <div id="time_slot_block"></div>
+            <div id="reservation_description_block">
+              <?php if(array_key_exists('start_time',$reservation_info)): ?>
+              <div style="font-weight:bold;">Reservation Description</div>
+              <?php
+                $start_obj = new DateTime($reservation_info['start_time']);
+                $end_obj = new DateTime($reservation_info['end_time']);
+                $display_time = format_reservation_display_time($start_obj,$end_obj);
+              ?>
+              <div><?= $display_time ?></div>
+              <?php endif; ?>
+            </div>
+            <?php $day_types = array(
+              'free' => 'All Slots Open', 
+              'partially_clear' => 'Some Slots Open', 
+              'full' => 'No Slots Available',
+              'preferred' => 'Select Proposal Types Only',
+              'disallowed' => 'Unavailable');
+            ?>
+            <div id="calendar_legend_block" class="reservation_slot_info">
+              <h2>Calendar Legend</h2>
+              <table class="legend_block" cellpadding="5">
+              <?php foreach($day_types as $day_type => $desc): ?>
+                <tr>
+                  <td class="legend day <?= $day_type ?>">&nbsp;</td>
+                  <td class="description_cell"><?= $desc ?></td>
+                </tr>
+              <?php endforeach; ?>
+              </table>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      
+      <?php $proposal_display = (array_key_exists('reservation_type_id',$reservation_info) && strpos($reservation_info['reservation_type_id'],"USER")) ? "" : " style=\"display:none;\""; ?>
+      <fieldset id="proposal_selector_container"<?= $proposal_display ?>>
+        <legend>EMSL User Proposal</legend>
+        <div class="full_width_block">
+          <select id="proposal_selector" name="eus_proposal_id" class="req_field" style="width:100%;">
+            <option></option>
+<?php if(!empty($proposal_info)): ?>
+          <?php foreach($proposal_info['items'] as $proposal_id => $proposal_name): ?>
+            <?php $selected = $reservation_info['eus_proposal_id'] == $proposal_id ? " selected=\"selected\"" : ""; ?>
+            <option value="<?= $proposal_id ?>"<?= $selected ?>><?= $proposal_name ?></option>
+          <?php endforeach; ?>  
+<?php endif; ?>            
+          </select>
+        </div>
+        <div class="full_width_block" id="proposal_count_container" style="padding: 10px 0px 0px 20px;">
+          <span id="proposal_count" class="small_print"></span>
+        </div>      
+      </fieldset>
+      <?php $atp_display = (array_key_exists('reservation_type_id',$reservation_info) && $reservation_info['reservation_type_id'] != "REG_USER") ? "" : " style=\"display:none;\""; ?>
+      <fieldset id="advanced_datetime_picker_container"<?= $atp_display ?>>
+      <?= $this->load->view("scheduling/alternate_datetime_picker_insert_view.html",$this->page_data); ?>
+      </fieldset>
+      
+
+      
+      <fieldset id="comments_container">
+        <legend>Reservation Comments</legend>
+        <div class='full_width_block'>
+          <?php $comments_text = array_key_exists('comments',$reservation_info) ? $reservation_info['comments'] : "" ?>
+          <textarea id="comments" name="comments" rows="4" style='width:100%;' placeholder="Enter any comments or notes regarding this reservation"><?= $comments_text ?></textarea>
+        </div>
+      </fieldset>
+            
+      <div class="full_width_block">
+        <div style="position:absolute;right:0;top:0" class="buttons">
+          <?php if($page_mode == 'new'): ?>
+          <input type="submit" name="submit_reservation" id="submit_reservation" class="disabled_button" disabled='disabled' value="Submit Reservation" />
+          <?php elseif($page_mode == 'edit'): ?>
+            <?php if($this->scheduling_access_level > 400 || $this->eus_user_id ==  $reservation_info['eus_user_id'] || $this->eus_user_id == $reservation_info['scheduled_by_id']): ?>
+            <input type="button" name="delete_reservation" id="delete_reservation" value="Delete Reservation" />
+            <input type="submit" name="submit_reservation" id="submit_reservation" class="disabled_button" disabled='disabled' value="Update Reservation" />  
+            <?php endif; ?>
+          <?php endif; ?>
+        </div>
+      </div>
+      <input type="hidden" class="req_field" name="start_time" id="reservation_start_time" value="<?= isset($reservation_info['start_time']) ? $reservation_info['start_time'] : '' ?>" />
+      <input type="hidden" class="req_field" name="end_time" id="reservation_end_time" value="<?= isset($reservation_info['end_time']) ? $reservation_info['end_time'] : '' ?>" />
+      <input type="hidden" name="reservation_id" id="reservation_id" value="<?= isset($reservation_info['reservation_id']) ? $reservation_info['reservation_id'] : -1 ?>" />
+    </form>
+    
+  </div>
+  <div id="reservation_response" style="display:none;"></div>
+  <script type="text/javascript">
+    var page_mode = '<?= $page_mode ?>';
+    var instrument_info = <?= json_encode($instrument_list) ?>;
+    var reservation_type_list = <?= json_encode($reservation_type_list) ?>;
+    var current_instrument_id = <?= $reservation_info['eus_instrument_id'] ?>;
+    var initial_reservation_info = <?= json_encode($reservation_info) ?>;
+  </script>
+
+</div>

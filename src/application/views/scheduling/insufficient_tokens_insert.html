@@ -1,0 +1,17 @@
+<div>
+  <p style="text-align:center;font-size:1.1em;font-weight:bold;color:#444;"><?= $user_classifications[$privilege_level]['description'] ?>s have a maximum of <?= $user_classifications[$privilege_level]['number_of_available_slots'] ?> reservations per instrument.</p>
+  <p style="text-align:center;font-size:1.1em;">You have scheduled the maximum number of allowed reservations for the selected instrument,<br />as detailed in the list below.</p>
+  <div class="full_width_block" style="border: 2px #d57500 solid;border-radius: 10px;background-color: #fff;margin: 2em 0;padding: 1em 0;">
+    <?= $this->load->view('scheduling/my_reservations_view.html') ?>
+  </div>            
+  <p style="text-align:center;">
+    You may cancel any reservations that are still in the "Queued" state, or wait until after
+  </p>
+  <p style="font-size:1.2em;text-align:center;font-weight:bold">              
+    <?= $upcoming_reservations['My Reservations']['next_available_time']->format('g:ia') ?> on 
+    <?= $upcoming_reservations['My Reservations']['next_available_time']->format('l, M dS Y') ?>
+  </p>
+  <p style="text-align:center;">
+    (after your earliest reservation is completed) to make a new one.
+  </p>
+</div>

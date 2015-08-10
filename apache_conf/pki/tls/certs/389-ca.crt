@@ -1,0 +1,54 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1000 (0x3e8)
+        Signature Algorithm: PKCS #1 SHA-1 With RSA Encryption
+        Issuer: "CN=CAcert"
+        Validity:
+            Not Before: Sat Nov 19 00:05:30 2011
+            Not After : Fri Nov 19 00:05:30 2021
+        Subject: "CN=CAcert"
+        Subject Public Key Info:
+            Public Key Algorithm: PKCS #1 RSA Encryption
+            RSA Public Key:
+                Modulus:
+                    cd:15:66:48:a8:56:9c:33:3b:ba:52:a4:5e:da:54:ec:
+                    44:f7:1e:47:c3:c4:48:12:60:c7:9d:fa:b1:05:85:21:
+                    03:5e:cf:0c:38:3f:1c:ea:93:86:14:21:08:9a:50:7d:
+                    63:15:b5:66:52:55:c7:66:23:8e:5d:e9:65:7f:76:ef:
+                    82:41:9e:57:c2:3d:95:6b:57:70:8c:06:55:b7:45:f6:
+                    2e:6c:18:7e:6f:85:e1:04:f3:13:9f:4c:fa:6d:5e:df:
+                    4f:03:71:2e:7f:3c:9f:bb:cd:28:0b:53:cc:39:3c:2a:
+                    de:d2:77:e3:5a:df:4a:01:c0:4e:36:18:41:8c:9b:9f
+                Exponent: 65537 (0x10001)
+        Signed Extensions:
+            Name: Certificate Basic Constraints
+            Critical: True
+            Data: Is a CA with no maximum path length.
+
+    Signature Algorithm: PKCS #1 SHA-1 With RSA Encryption
+    Signature:
+        c7:d0:8a:ff:45:86:e6:4c:24:77:3d:8f:54:56:dd:b6:
+        48:32:94:06:29:f5:3c:05:09:8b:89:c6:74:eb:98:d3:
+        ec:59:a2:55:ab:ee:52:2d:6e:27:78:01:92:6d:b9:7b:
+        97:06:7a:0e:95:4d:39:b4:d4:ab:2e:91:e6:4d:8b:6b:
+        97:53:90:f0:56:c0:2c:6c:79:dd:88:45:37:09:05:61:
+        53:8d:41:f2:09:6e:85:02:f3:68:a7:35:27:d6:a4:80:
+        0d:cf:2a:ae:46:ca:7b:53:af:d6:68:0f:6d:08:b7:de:
+        74:1f:a8:95:8a:e0:2d:5f:75:ae:42:6c:d5:b2:a8:e1
+    Fingerprint (MD5):
+        D4:9D:8F:AB:D4:91:A0:87:76:BB:5E:FF:4E:97:C1:13
+    Fingerprint (SHA1):
+        4D:36:F3:29:45:17:D4:F2:BF:BC:5C:0B:34:E3:AA:1D:D9:5C:6E:D0
+-----BEGIN CERTIFICATE-----
+MIIBrDCCARWgAwIBAgICA+gwDQYJKoZIhvcNAQEFBQAwETEPMA0GA1UEAxMGQ0Fj
+ZXJ0MB4XDTExMTExOTAwMDUzMFoXDTIxMTExOTAwMDUzMFowETEPMA0GA1UEAxMG
+Q0FjZXJ0MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDNFWZIqFacMzu6UqRe
+2lTsRPceR8PESBJgx536sQWFIQNezww4Pxzqk4YUIQiaUH1jFbVmUlXHZiOOXell
+f3bvgkGeV8I9lWtXcIwGVbdF9i5sGH5vheEE8xOfTPptXt9PA3Eufzyfu80oC1PM
+OTwq3tJ341rfSgHATjYYQYybnwIDAQABoxMwETAPBgNVHRMBAf8EBTADAQH/MA0G
+CSqGSIb3DQEBBQUAA4GBAMfQiv9FhuZMJHc9j1RW3bZIMpQGKfU8BQmLicZ065jT
+7FmiVavuUi1uJ3gBkm25e5cGeg6VTTm01KsukeZNi2uXU5DwVsAsbHndiEU3CQVh
+U41B8gluhQLzaKc1J9akgA3PKq5GyntTr9ZoD20It950H6iViuAtX3WuQmzVsqjh
+-----END CERTIFICATE-----
+

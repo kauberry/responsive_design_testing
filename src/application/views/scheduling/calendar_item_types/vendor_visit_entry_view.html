@@ -1,0 +1,17 @@
+<?php $ended = $res['end_timestamp'] < $current_time ? " reservation_ended" : ""; ?>
+<div class="maintenance_reservation calendar_entry col_<?= $slot['column'] ?> <?= $slot['top_class'] ?> <?= $slot['bottom_class'] ?><?= $ended ?><?= $in_progress ?>" style="border-width:2px; color:<?= $res['text_color'] ?>;">  
+  <div class="reservation_info maintenance_reservation" style="border-color:<?= $res['border_color'] ?>">
+    <div><span class="reservation_type_name"><?= $res['reservation_type_name'] ?></span></div>
+    <div><span class="res_user_name"><?= $res['eus_user_name'] ?></span></div>
+    <div class="timespan">
+      <a class="reservation_link" href="<?= base_url() ?><?= $res['view_url'] ?>"><span class="start_time"><?= $res['start_time'] ?></span> &ndash; <span class="end_time"><?= $res['end_time'] ?></span></a>
+    </div>
+    <?php if(!empty($res['eus_proposal_id'])): ?>
+    <div title="<?= $res['eus_proposal_name'] ?>" class="user_proposal_info">
+      Proposal# <span class="user_proposal_number"><?= $res['eus_proposal_id'] ?></span>
+      <br />
+      <span class="user_proposal_title"><?= truncate($res['eus_proposal_name'],60) ?></span>
+    </div>
+    <?php endif; ?>
+  </div>
+</div>

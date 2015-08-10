@@ -1,0 +1,86 @@
+form.themed {
+ display:block;
+ width:100%;
+}
+
+form.themed label {
+  color: #606060;
+  font-weight:bold;
+}
+form.themed fieldset {
+  position:relative;
+  margin: 1em 0 1em 0;
+  border: 2px solid #b2b3b5;
+  padding:1.5em;
+  padding-top:0.75em;
+  background-color:#efefef;
+}
+
+form.themed fieldset legend {
+  position:absolute;
+  top: -0.85em;
+  left: 0.1em;
+  padding:3px 5px 0px 5px;
+  color:#656565;
+  font-size:large;
+  font-weight:bold;
+}
+div.form_container {
+  padding-top:0px;
+  width:100%;
+  position:relative;
+}
+div.table_container {
+  padding-top:12px;
+}
+
+div.proj_info_block span.block_header {
+  font-weight:bold;
+}
+
+#pnnlLogo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block;
+  background-image: url("/resources/images/pnnl_logo_battelle.jpg");
+  background-repeat: no-repeat;
+  width: 242px;
+  height: 123px;
+  text-indent: -1000px;
+  z-index: 10;
+}
+
+#topBanner #doeLink {
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  background-image: url("/resources/images/doe_seal_plus_name.png");
+  background-size: auto 40px;
+  background-repeat: no-repeat;
+  width: 167px;
+  height: 48px;
+  text-indent: -2000px;
+}
+
+/*div.buttons button, div.buttons input[type="button"], div.buttons input[type="reset"], div.buttons input[type="submit"], div.buttons a {
+  line-height:100%;
+  font-size:0.6em;
+}*/
+.banner_bar_green{
+  background-color: #356d43;
+}
+
+.banner_bar_orange{
+  background-color: #c47c27;
+}
+
+.banner_bar_grey{
+  background-color: #9f9f9f;
+}
+
+label.instrument_picker_label {
+  color:#111;
+  font-size:0.8em;
+}

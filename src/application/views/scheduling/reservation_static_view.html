@@ -1,0 +1,25 @@
+<div id="reservation_info_view_<?= $reservation_id ?>">
+  <div class="form_container">
+    <form id='reservation_view' class="themed">
+      <?php foreach($ordering_list as $category => $members): ?>
+      <fieldset id="<?= $category ?>">
+        <legend><?= ucwords(str_replace('_',' ',$category)) ?></legend>
+        <div class="full_width_block">
+          <dl>
+          <?php foreach($members as $value_name => $friendly_name): ?>
+            <dt><?= $friendly_name ?></dt>
+            <dd><?= $reservation_info[$value_name] ?></dd>
+          <?php endforeach; ?>
+          </dl>
+        </div>
+      </fieldset>
+      <?php endforeach; ?>
+      <?php $end_timestamp = new DateTime($reservation_info['end_time']); ?>
+      <?php if(($this->scheduling_access_level > 400 || $this->eus_user_id == $reservation_info['eus_user_id']) && $end_timestamp > new DateTime() ): ?>
+      <div class="buttons">
+        <a href="<?= base_url() ?><?= $reservation_info['edit_url'] ?>" name="edit_reservation" id="edit_reservation">Edit Reservation</a>  
+      </div>
+      <?php endif; ?>
+    </form>
+  </div>
+</div>

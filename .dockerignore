@@ -1,0 +1,5 @@
+*/.git
+.gitmodules
+.DS_Store
+.settings/*
+README.md
