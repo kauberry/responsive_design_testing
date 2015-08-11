@@ -17,7 +17,7 @@ body {
   margin-top:20px;
   background-color:#ffffff;
   height:53px;
-  width:940px;
+  width:auto;
   position:relative;
 }
 
@@ -28,13 +28,13 @@ body {
 }
 
 .banner_bar_left{
-  width:220px;
+  width:23.40425532%;
   left:0px;
 }
 
 .banner_bar_right{
-  width:718px;
-  left:222px;
+  width:76.59574468%;
+  left:23.61702128%;
 }
 
 .banner_bar_green{
@@ -72,6 +72,9 @@ body {
   margin-left:20px;
 }
 
+.tiny{
+  font-size:0.75em;
+}
 
 .page_wrapper {
   width:100%;
@@ -218,6 +221,11 @@ form#pnnlSearch {
     background-size: 110px 60px;
     background-repeat:no-repeat;
   }
+  #pnnllogo_container {
+    height:60px;
+    max-width:242px;
+  }
+
 }
 
 
@@ -227,14 +235,25 @@ form#pnnlSearch {
     background-size: 110px 60px;
     background-repeat:no-repeat;
   }
-    #pnnllogo_container {
+  #pnnllogo_container {
     height:60px;
     max-width:242px;
   }
 }
 
-
-@media (max-width: 800px) {
+@media (max-width: 850px){
+	.banner_bar_background {
+		height:auto;
+		width:auto;
+	}
+	.banner_bar {
+		position:relative;
+	}
+	.banner_bar_left, .banner_bar_right {
+		position:relative;
+		width:100%;
+		left:0;
+	}
   .intranet_bg {
     background-image:none;
     width:2%;
@@ -243,8 +262,12 @@ form#pnnlSearch {
     margin-left:0;
     margin-right:0;
   }
-
+  #site_label {
+	  padding-top:8px;
+	  margin-left:10px;
+  }
 }
+
 
 @media (max-width:900px) {
   #pnnlNav {
