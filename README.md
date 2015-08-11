@@ -1,2 +1,2 @@
-# responsive_design_testing
-Testing website chrome changes to better handle mobile
+#Responsive Design Testing
+This is just a place to hang a test project while I'm working on it
