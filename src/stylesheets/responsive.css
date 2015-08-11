@@ -4,6 +4,10 @@ body {
   line-height: 150%;
 }
 
+#page_body {
+	padding: 0 1em;	
+}
+
 .user_login_info{
   position:absolute;
   left:10px;
