@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/responsive_emsl.css" />
   </head>
   <body>
     <div class="page_wrapper">
@@ -58,6 +58,86 @@
           </div>
         </div>
         <div id="page_body">
+					<div id="leftNav">
+					  <div id="month_calendar"></div>
+					  <ul>
+						  <li class="first heading"><h2>Scheduling</h2>
+							  <ul>
+							    <li class="unselected">
+							      <a href="http://docker.local/scheduling/my_reservations" id="entry_100.50">My Reservations</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/scheduling" id="entry_100.100">Instrument List</a>
+							    </li>
+							    <li class="selected">
+							      <a href="http://docker.local/scheduling/calendar/stem" id="entry_100.101">&ndash; Scanning TEM (STEM)</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/scheduling/calendar/lhecryotem" id="entry_100.102">&ndash; Liquid Helium Cryo-TEM</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/scheduling/calendar/etem" id="entry_100.103">&ndash; Environmental TEM (ETEM)</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/scheduling/reservation" id="entry_100.300">Make a New Reservation</a>
+							    </li>
+							  </ul>
+						  </li>
+						  <li class="heading"><h2>General</h2>
+							  <ul>
+							    <li class="unselected">
+							      <a href="http://docker.local/search" id="entry_150.150">Search Tickets</a>
+							    </li>
+							  </ul>
+						  </li>
+						  <li class="heading"><h2>User Support</h2>
+							  <ul>
+							    <li class="unselected">
+							      <a href="http://docker.local/ticket/new" id="entry_175.50">New Ticket Entry</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/tickets/mine" id="entry_175.100">My Tickets</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/tickets/most_recent" id="entry_175.150">Most Recent Tickets</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/tickets/by_status" id="entry_175.200">Current Tickets by Status</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/tickets" id="entry_175.300">List Current Tickets by Priority</a>
+							    </li>
+							  </ul>
+						  </li>
+						  <li class="heading"><h2>Equipment</h2>
+							  <ul>
+							    <li class="unselected">
+							      <a href="http://docker.local/equipment" id="entry_200.100">Available equipment by location</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/equipment/accessory" id="entry_200.101">List of Accessories [0]</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/equipment/instrument" id="entry_200.102">List of Instruments [3]</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/equipment/manipulator" id="entry_200.103">List of Manipulators [0]</a>
+							    </li>
+							  </ul>
+						  </li>
+						  <li class="heading"><h2>Administrative Tasks</h2>
+							  <ul>
+							    <li class="unselected">
+							      <a href="http://docker.local/admin/users" id="entry_900.100">Current User List</a>
+							    </li>
+							    <li class="unselected">
+							      <a href="http://docker.local/admin/add_equipment" id="entry_900.200">Add New Equipment Items</a>
+							    </li>
+							  </ul>
+						  </li>
+					  </ul>
+					</div>        
+	        
 		      <div id="page_content">
 	          <h1>The Honking</h1>
 	          <p>It's toe-tappingly tragic! Quite possible. We live long and are celebrated poopers. Bender! Ship! Stop bickering or I'm going to come back there and change your opinions manually! Does anybody else feel jealous and aroused and worried?</p>
@@ -95,82 +175,21 @@
 	          <p>Oh, you're a dollar naughtier than most. No, just a regular mistake. I don't want to be rescued. You, a bobsleder!? That I'd like to see! Kids have names? No argument here.</p>
 	          <p>You've killed me! Oh, you've killed me! Humans dating robots is sick. You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! Bender, we're trying our best. I found what I need. And it's not friends, it's things.</p>
 	        </div>
-					<div id="leftNav">
-					  <div id="month_calendar"></div>
-					  <h2 class="first">Instrument Scheduling</h2>
-					  <ul>
-					    <li class="unselected">
-					      <a href="http://docker.local/scheduling/my_reservations" id="entry_100.50">My Upcoming Reservations</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/scheduling" id="entry_100.100">Instrument List</a>
-					    </li>
-					    <li class="selected">
-					      <a href="http://docker.local/scheduling/calendar/stem" id="entry_100.101">&ndash; Scanning TEM (STEM)</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/scheduling/calendar/lhecryotem" id="entry_100.102">&ndash; Liquid Helium Cryo-TEM</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/scheduling/calendar/etem" id="entry_100.103">&ndash; Environmental TEM (ETEM)</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/scheduling/calendar" id="entry_100.200">Instrument Calendar</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/scheduling/reservation" id="entry_100.300">Make a New Reservation</a>
-					    </li>
-					  </ul>
-					  <h2>General</h2>
-					  <ul>
-					    <li class="unselected">
-					      <a href="http://docker.local/search" id="entry_150.150">Search Tickets</a>
-					    </li>
-					  </ul>
-					  <h2>User Support</h2>
-					  <ul>
-					    <li class="unselected">
-					      <a href="http://docker.local/ticket/new" id="entry_175.50">New Ticket Entry</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/tickets/mine" id="entry_175.100">My Tickets</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/tickets/most_recent" id="entry_175.150">Most Recent Tickets</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/tickets/by_status" id="entry_175.200">Current Tickets by Status</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/tickets" id="entry_175.300">List Current Tickets by Priority</a>
-					    </li>
-					  </ul>
-					  <h2>Equipment / Software</h2>
-					  <ul>
-					    <li class="unselected">
-					      <a href="http://docker.local/equipment" id="entry_200.100">Available equipment by location</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/equipment/accessory" id="entry_200.101">List of Accessories [0]</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/equipment/instrument" id="entry_200.102">List of Instruments [3]</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/equipment/manipulator" id="entry_200.103">List of Manipulators [0]</a>
-					    </li>
-					  </ul>
-					  <h2>Administrative Tasks</h2>
-					  <ul>
-					    <li class="unselected">
-					      <a href="http://docker.local/admin/users" id="entry_900.100">Current User List</a>
-					    </li>
-					    <li class="unselected">
-					      <a href="http://docker.local/admin/add_equipment" id="entry_900.200">Add New Equipment Items</a>
-					    </li>
-					  </ul>
-					</div>        
 	        
+        </div>
+        <div id="page_footer">
+	        <footer>
+		        <div class="banner_bar_background banner_footer">
+              <div class="banner_bar banner_bar_right banner_bar_grey" id="banner_lower_left">&nbsp;</div>
+              <div class="banner_bar banner_bar_left banner_bar_orange" id="banner_lower_right">&nbsp;</div>
+              <div id="tagline">
+	              <div id="tagline_left">
+		              Last Update: <strong>August 2015</strong> | Pacific Northwest National Laboratory | Operated by Battelle for the U.S. Department of Energy
+		            </div>
+		            <div id="tagline_right">Security & Privacy</div>
+              </div>
+		        </div>
+	        </footer>
         </div>
       </div>
     </div>
