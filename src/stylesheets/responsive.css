@@ -3,11 +3,80 @@ body {
   font-size: 13px;
   line-height: 150%;
 }
-
+a:visited {
+	color: #6b2f81;
+	text-decoration: none;	
+}
+a:link {
+	color: #0077a4;
+	text-decoration: none;	
+}
 #page_body {
+	position:relative;
+}
+#page_content {
 	padding: 0 1em;	
+	margin-left:23.405%;
 }
 
+
+#leftNav {
+	width: 23.404%;
+	top: -19px;
+	position:absolute;
+	background-color: #e8e8e9;
+	font-size: 12px;
+	border-radius:4px 0px 0px 4px;
+}
+
+#leftNav h2 {
+	font-weight: 600 !important;
+	color: white;
+	font-size: 13px;
+	background-color: #606060;
+	padding: 6px 4px 6px 11px;
+	background-image: url("/resources/images/subnav_header_bg.png");
+	background-repeat: repeat-x;
+	background-position: left bottom;
+}
+#leftNav ul {
+	margin: 8px 0 8px 8px;
+	padding: 0;	
+}
+#leftNav li {
+	list-style-type: none !important;
+}
+#leftNav a {
+	display: block;
+	padding: 5px 4px 5px 8px;
+	color: #606060;
+	background-image: none !important;
+}
+#leftNav li.unselected a {
+	transition: all 0.25s;
+}
+#leftNav li.selected {
+	color: rgb(213, 117, 0);
+	font-weight: normal;
+	background-color: white;
+	border-radius: 5px 0 0 5px;
+}
+#leftNav li.selected a:hover {
+	text-decoration:none;
+}
+#leftNav li.selected a {
+  color: rgb(213, 117, 0);
+}
+#leftNav li.unselected a:hover
+{
+  font-weight: normal;
+  background-color: #ccc;
+  border-radius: 5px 0 0 5px;
+  -moz-border-radius: 5px 0 0 5px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  text-decoration:none;
+}
 .user_login_info{
   position:absolute;
   left:10px;
@@ -228,6 +297,9 @@ form#pnnlSearch {
     background-image: url("/resources/images/pnnl_swoosh.png");
     background-size: 110px 60px;
     background-repeat:no-repeat;
+  }
+  #siteNav {
+	  display:none;
   }
   #pnnllogo_container {
     height:60px;
