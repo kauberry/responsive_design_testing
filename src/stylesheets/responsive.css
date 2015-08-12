@@ -97,7 +97,7 @@ body {
 #siteNav{
   position:absolute;
   right: 5px;
-  bottom: 0px;
+  bottom: 65px;
 }
 
 
@@ -135,7 +135,7 @@ form#pnnlSearch {
 #pnnllogo {
   width:100%;
   height:100%;
-  background: url("/resources/images/pnnl_logo_battelle.png");
+  background: url("/resources/images/pnnl_logo_battelle_2015.png");
   background-size: 242px 123px;
 }
 
@@ -196,7 +196,7 @@ form#pnnlSearch {
     background-size: 48px 470px;
   }
   #pnnllogo {
-    background: url("/resources/images/pnnl_logo_battelle@2x.png");
+    background: url("/resources/images/pnnl_logo_battelle_2015@2x.png");
     background-size: 242px 123px;
   }
   #doelogo {
@@ -215,8 +215,12 @@ form#pnnlSearch {
   .intranet_bg {
     background: url("/resources/images/intranet_bg_l@3x.png") repeat-y;
     background-size: 48px 470px;
-
   }
+  #pnnllogo {
+    background: url("/resources/images/pnnl_logo_battelle_2015@3x.png");
+    background-size: 242px 123px;
+  }
+  
 }
 
 @media (max-width: 500px) {
@@ -258,6 +262,9 @@ form#pnnlSearch {
 		width:100%;
 		left:0;
 	}
+  #siteNav {
+		bottom:95px;
+	}
   .intranet_bg {
     background-image:none;
     width:2%;
@@ -277,7 +284,6 @@ form#pnnlSearch {
   #pnnlNav {
     display:none;
   }
-
 }
 
 @media (max-width:319px){
