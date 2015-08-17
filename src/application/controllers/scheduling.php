@@ -21,6 +21,11 @@ class Scheduling extends Baseline_controller {
     $this->load->view('responsive_test.html');
   }
 
+  public function uploader(){
+	  $this->load->view('uploader_template.html');
+  }
+
+
   public function index(){
     //$instrument_list = $this->sched->get_current_instrument_list();
     //$this->page_data['instrument_list'] = $instrument_list;
