@@ -2,9 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-	<title>MyEMSL Instrument Data Uploader</title>
-    {% include "includes/global_styles.html" %}
-    <link rel="stylesheet" href="/media/stylesheets/upload_style.css">
+		<title>MyEMSL Instrument Data Uploader</title>
+		<link href="{{ MEDIA_URL }}stylesheets/select2/select2.min.css" rel="stylesheet" />
+		<script src="{{ MEDIA_URL }}scripts/jquery/jquery-1.11.2.js"></script>
+		<script src="{{ MEDIA_URL }}scripts/select2/select2.min.js"></script>
+		<link rel="stylesheet" href="{{ MEDIA_URL }}stylesheets/emsl_chrome.css">
+		<link rel="stylesheet" href="{{ MEDIA_URL }}stylesheets/emsl_style.css">
+		<link rel="stylesheet" href="/media/stylesheets/upload_style.css">
 
     <script type="text/javascript">
       $('select').select2();
